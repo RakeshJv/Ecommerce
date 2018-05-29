@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+
+    <color name="price">#999999</color>
+    <color name="itemName">#222222</color>
+    <color name="signpanel_title_text_color">#FFFFFFFF</color>
+    <color name="signpanel_countdown_text_color">#FFFF0000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="text_default">#ff333333</color>
+    <color name="border_gray_color">#E6E6E6</color>
+    <color name="red">#FF0000</color>
+    <color name="black">#000</color>
+
+
+</resources>
