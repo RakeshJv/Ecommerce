@@ -18,12 +18,12 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
     private AutoCompleteTextView autoComplete;
     ArrayList<HashMap<String,String>> retailerList;
     ArrayList<HashMap<String,String>> autoCompleteList;
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -109,12 +109,27 @@ public class MainActivity extends AppCompatActivity {
                     FilterResults filterResults = new FilterResults();
                     if (constraint != null) {
                         autoCompleteList = new ArrayList<HashMap<String, String>>();
-                        for (int i = 0; i < retailerList.size(); i++) {
-                            if (retailerList.get(i).get("area").startsWith(constraint.toString())
+
+                        final String prefixString = constraint.toString().toLowerCase();
+
+                        for (int i = 0; i < retailerList.size(); i++)
+                        {
+
+                           /* if (retailerList.get(i).get("area").startsWith(constraint.toString())
                                     ||retailerList.get(i).get("zip").startsWith(constraint.toString()))
                             {
                                 autoCompleteList.add(retailerList.get(i));
+                            }*/
+
+                            if (retailerList.get(i).get("area").toLowerCase().contains(prefixString)
+                                    ||retailerList.get(i).get("zip").toLowerCase().contains(prefixString))
+                            {
+
+                                autoCompleteList.add(retailerList.get(i));
+
                             }
+
+
                         }
                         // Now assign the values and count to the FilterResults
                         // object
