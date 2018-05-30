@@ -3,6 +3,7 @@ package com.ecommerce.fragment;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.DividerItemDecoration;
@@ -33,7 +34,6 @@ public class StoreListFragment extends Fragment {
     private OnFragmentInteractionListener mListener;
 
     public StoreListFragment() {
-        // Required empty public constructor
     }
 
     @Override
@@ -96,6 +96,13 @@ public class StoreListFragment extends Fragment {
         if (mListener != null) {
             mListener.onFragmentInteraction(uri);
         }
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        getActivity().setTitle("Stores");        // Required empty public constructor
+
     }
 
     @Override

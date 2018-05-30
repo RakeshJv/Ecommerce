@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/border_gray_color"
     android:clickable="true"
     android:focusable="true"
     android:orientation="vertical"
-
     android:padding="20dp"
     android:paddingBottom="@dimen/row_padding_vertical"
     android:paddingLeft="@dimen/activity_horizontal_margin"
@@ -14,106 +15,88 @@
     android:paddingTop="@dimen/row_padding_vertical">
 
     <TextView
-        android:id="@+id/itemName"
+        android:id="@+id/shopName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:text="TEST 1"
+        android:text="National General Store"
         android:textColor="@color/itemName"
         android:textSize="20dp" />
 
     <TextView
-        android:id="@+id/genre"
-        android:layout_width="match_parent"
-
-        android:layout_height="wrap_content"
-        android:layout_below="@id/itemName"
-        android:text="TEST 2" />
+        android:id="@+id/labelAddress"
+        android:layout_width="wrap_content"
+        android:layout_height="21dp"
+        android:ems="10"
+        android:text="Address"
+        app:layout_constraintTop_toBottomOf="@+id/shopName"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp" />
 
     <TextView
-        android:id="@+id/price"
+        android:id="@+id/address"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:text="TEST 3"
-        android:textColor="@color/colorPrimary"
-        android:textSize="22dp" />
-
-    <!--<ImageView
-        android:id="@+id/right_arrow"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="10dp"
-        android:src="@drawable/right_arrow" />
--->
-    <LinearLayout
-        android:id="@+id/itemQuantityLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="25dp"
-        android:layout_below="@+id/price"
-        android:weightSum="1">
-
-        <TextView
-            android:id="@+id/labelQuantity"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight=".50"
-            android:gravity="left"
-            android:text="Quantity :"
-            android:textColor="@color/colorPrimary"
-            android:textSize="12sp"
-            android:textStyle="normal" />
-
-        <TextView
-            android:id="@+id/quantity"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight=".50"
-            android:gravity="right"
-            android:textColor="@color/colorPrimary"
-            android:textSize="15sp"
-            android:textStyle="normal" />
-    </LinearLayout>
-
+        android:layout_marginTop="4dp"
+        android:text="qqqqqssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssqqqqqqqaaaaaaaaaaawcsdcvdscdssdqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqddddddddddddddddddddddddddddddddddddddddddsssssssssssssssssssssss"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/labelAddress"
+        tools:ignore="MissingConstraints" />
 
 
     <LinearLayout
-        android:id="@+id/itemTotalPriceLayout"
+        android:id="@+id/landLinePhoneLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="10dp"
-        android:layout_below="@+id/itemQuantityLayout"
-        android:layout_marginBottom="10dp"
-        android:weightSum="1">
+        app:layout_constraintTop_toBottomOf="@+id/address">
+
+
+    <TextView
+        android:id="@+id/labelPhone"
+        android:layout_width="wrap_content"
+        android:layout_height="21dp"
+        android:ems="10"
+        android:layout_gravity="center"
+        android:text="Phone : "
+        android:gravity="left"
+  />
+
+    <TextView
+        android:id="@+id/phone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="12345678901234"
+  />
+    ></LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/mobilePhoneLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/landLinePhoneLayout">
+
 
         <TextView
-            android:id="@+id/labelTotalAmount"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight=".50"
+            android:id="@+id/labelMobilePhone"
+            android:layout_width="wrap_content"
+            android:layout_height="21dp"
+            android:ems="10"
+            android:layout_gravity="center"
+            android:text="Mobile : "
             android:gravity="left"
-            android:text="Total Amount :"
-            android:textColor="@color/colorPrimary"
-            android:textSize="15sp"
-            android:textStyle="normal" />
+            />
 
         <TextView
-            android:id="@+id/txtTotalAmonut"
-            android:layout_width="0dp"
+            android:id="@+id/mobilePhone"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight=".50"
-            android:gravity="right"
-            android:textColor="@color/red"
+            android:text="12345678901234"
+            />
 
-            android:textSize="17sp"
-            android:text="123455"
-            android:textStyle="normal" />
-    </LinearLayout>
+        ></LinearLayout>
 
 
-</RelativeLayout>
+
+</android.support.constraint.ConstraintLayout>

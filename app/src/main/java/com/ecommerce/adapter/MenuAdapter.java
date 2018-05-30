@@ -26,7 +26,7 @@ public class MyViewHolder extends RecyclerView.ViewHolder {
     public MyViewHolder(View view) {
         super(view);
 
-        title = (TextView) view.findViewById(R.id.itemName);
+        title = (TextView) view.findViewById(R.id.shopName);
         genre = (TextView) view.findViewById(R.id.genre);
         price = (TextView) view.findViewById(R.id.price);
 
@@ -56,18 +56,8 @@ public class MyViewHolder extends RecyclerView.ViewHolder {
         holder.price.setText(""+item.getPrice());
         holder.quantity.setText(""+item.getQuntity());
         holder.txtTotalAmonut.setText(""+item.getTotalAmount());
-        if(item.getTotalAmount()==0){
 
-            holder. itemQuantityLayout.setVisibility(View.GONE);
-            holder.itemTotalPriceLayout.setVisibility(View.GONE);
-
-        }
-        else{
-            holder. itemQuantityLayout.setVisibility(View.VISIBLE);
-            holder.itemTotalPriceLayout.setVisibility(View.VISIBLE);
-
-        }
-    }
+}
     @Override
     public int getItemCount() {
         return itemList.size();
