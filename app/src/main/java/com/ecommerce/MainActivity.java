@@ -34,6 +34,8 @@ public class MainActivity extends BaseActivity {
         row1.put("zip", "400017");
         retailerList.add(row1);
 
+        //
+
         HashMap<String,String> row2 = new HashMap<String, String>();
         row2.put("area","Dadar");
         row2.put("zip", "400014");
