@@ -12,11 +12,14 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.ecommerce.R;
-import com.ecommerce.adapter.Menu;
 import com.ecommerce.adapter.MenuAdapter;
 import com.ecommerce.adapter.RecyclerTouchListener;
+import com.ecommerce.model.Address;
+import com.ecommerce.model.Contact;
+import com.ecommerce.model.Merchant;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,7 +29,7 @@ import java.util.List;
  * Activities that contain this fragment must implement the
  * {@link StoreListFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link StoreListFragment#newInstance} factory method to
+ * Use the {@link StoreListFragment#} factory method to
  * create an instance of this fragment.
  */
 public class StoreListFragment extends Fragment {
@@ -43,7 +46,7 @@ public class StoreListFragment extends Fragment {
     }
 
     MenuAdapter mAdapter;
-    private List<Menu> menuList = new ArrayList<>();
+    private List<Merchant> menuList = new ArrayList<>();
     private RecyclerView recyclerView;
 
     @Override
@@ -77,7 +80,7 @@ public class StoreListFragment extends Fragment {
             @Override
             public void onClick(View view, int position)
             {
-                //showAlert(position);
+                Toast.makeText(getActivity(),"Index number-->"+position,Toast.LENGTH_LONG).show();
             }
             @Override
             public void onLongClick(View view, int position) {
@@ -138,51 +141,48 @@ public class StoreListFragment extends Fragment {
     }
 
     private void prepareMovieData() {
-        Menu movie = new Menu("Chicken Cury", "Non veg", 150);
-        menuList.add(movie);
+        Merchant  merchant= new Merchant();
+        merchant.setMerchantId(1);
 
-        movie = new Menu("Chicken Masala", "Non veg", 155);
-        menuList.add(movie);
-        movie = new Menu("Butter Chicken", "Non veg", 175);
-        menuList.add(movie);
-        movie = new Menu("Chicken Fried Rice", "Non veg", 110);
-        menuList.add(movie);
+        merchant.setMerchantName("Shop 1");
+        Address address = new Address();
+        address.setAddress1("Kamala Nagar Jasmine mill road");
+        address.setAddress2("Mahim East");
+        merchant.setAddress(address);
 
-       /* movie = new Menu("The Martian", "Science Fiction & Fantasy", "2015");
-        menuList.add(movie);
+        Contact contact = new Contact();
+        contact.setLandLine("022-88888888");
+        contact.setMobileNumber(1234567890);
+        merchant.setContact(contact);
+        merchant.setNearLandmark("Church");
 
-        movie = new Menu("Mission: Impossible Rogue Nation", "Action", "2015");
-        menuList.add(movie);
+        menuList.add(merchant);
 
-        movie = new Menu("Up", "Animation", "2009");
-        menuList.add(movie);
 
-        movie = new Menu("Star Trek", "Science Fiction", "2009");
-        menuList.add(movie);
 
-        movie = new Menu("The LEGO Menu", "Animation", "2014");
-        menuList.add(movie);
+        merchant= new Merchant();
+        merchant.setMerchantId(2);
 
-        movie = new Menu("Iron Man", "Action & Adventure", "2008");
-        menuList.add(movie);
+        merchant.setMerchantName("Shop 1");
+         address = new Address();
+        address.setAddress1("Kamala Nagar Jasmine mill road");
+        address.setAddress2("Mahim East");
+        merchant.setAddress(address);
 
-        movie = new Menu("Aliens", "Science Fiction", "1986");
-        menuList.add(movie);
+        contact = new Contact();
+        contact.setMobileNumber(1234567890);
 
-        movie = new Menu("Chicken Run", "Animation", "2000");
-        menuList.add(movie);
+        contact.setLandLine("022-88888888");
+        merchant.setContact(contact);
+        merchant.setNearLandmark("Church");
+        menuList.add(merchant);
 
-        movie = new Menu("Back to the Future", "Science Fiction", "1985");
-        menuList.add(movie);
+        menuList.add(merchant);
 
-        movie = new Menu("Raiders of the Lost Ark", "Action & Adventure", "1981");
-        menuList.add(movie);
 
-        movie = new Menu("Goldfinger", "Action & Adventure", "1965");
-        menuList.add(movie);
 
-        movie = new Menu("Guardians of the Galaxy", "Science Fiction & Fantasy", "2014");
-        menuList.add(movie);*/
+        menuList.add(merchant);
+
 
         // notify adapter about data set changes
         // so that it will render the list with new data

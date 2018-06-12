@@ -6,10 +6,19 @@ package com.ecommerce.model;
 
 public class Merchant extends Person{
 
-    int merchantId;
-    String nearLandmark;
+private     int merchantId;
+   private  String nearLandmark;
 
-    
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+
+private     Address address;
+
     public Contact getContact()
     {
         return contact;
