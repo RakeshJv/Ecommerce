@@ -11,7 +11,7 @@ import com.ecommerce.model.Merchant;
 
 import java.util.List;
 
-public class ItemAdapter  extends RecyclerView.Adapter<MenuAdapter.MyViewHolder> {
+public class ItemAdapter  extends RecyclerView.Adapter<ItemAdapter.MyViewHolder> {
     private List<Merchant> merchantList;
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
@@ -27,7 +27,7 @@ public class ItemAdapter  extends RecyclerView.Adapter<MenuAdapter.MyViewHolder>
         }
     }
 
-    public MenuAdapter(List<Merchant> merchantList) {
+    public ItemAdapter(List<Merchant> merchantList) {
         this.merchantList = merchantList;
     }
 
