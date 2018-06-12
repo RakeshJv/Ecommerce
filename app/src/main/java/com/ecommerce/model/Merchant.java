@@ -4,15 +4,22 @@ package com.ecommerce.model;
  * Created by Rvaishya on 5/1/2018.
  */
 
-public class Merchant {
+public class Merchant extends Person{
 
     int merchantId;
-    String merchantName;
-    String addressLine1;
-    String addressLine2;
-    int mobileNumber;
-    String landLineNumber;
     String nearLandmark;
+
+    public Contact getContact()
+    {
+        return contact;
+    }
+
+    public void setContact(Contact contact) {
+        this.contact = contact;
+    }
+
+    Contact contact;
+
 
     public int getMerchantId() {
         return merchantId;
@@ -23,44 +30,13 @@ public class Merchant {
     }
 
     public String getMerchantName() {
-        return merchantName;
+        return this.name;
     }
 
     public void setMerchantName(String merchantName) {
-        this.merchantName = merchantName;
+        this.name = merchantName;
     }
 
-    public String getAddressLine1() {
-        return addressLine1;
-    }
-
-    public void setAddressLine1(String addressLine1) {
-        this.addressLine1 = addressLine1;
-    }
-
-    public String getAddressLine2() {
-        return addressLine2;
-    }
-
-    public void setAddressLine2(String addressLine2) {
-        this.addressLine2 = addressLine2;
-    }
-
-    public int getMobileNumber() {
-        return mobileNumber;
-    }
-
-    public void setMobileNumber(int mobileNumber) {
-        this.mobileNumber = mobileNumber;
-    }
-
-    public String getLandLineNumber() {
-        return landLineNumber;
-    }
-
-    public void setLandLineNumber(String landLineNumber) {
-        this.landLineNumber = landLineNumber;
-    }
 
     public String getNearLandmark() {
         return nearLandmark;
@@ -69,5 +45,7 @@ public class Merchant {
     public void setNearLandmark(String nearLandmark) {
         this.nearLandmark = nearLandmark;
     }
+
+
 
 }

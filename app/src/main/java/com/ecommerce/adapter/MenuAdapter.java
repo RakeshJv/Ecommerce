@@ -19,21 +19,28 @@ public class MenuAdapter  extends RecyclerView.Adapter<MenuAdapter.MyViewHolder>
 private List<Menu> itemList;
 
 public class MyViewHolder extends RecyclerView.ViewHolder {
-    public TextView title, price, genre;
-    LinearLayout itemQuantityLayout, itemTotalPriceLayout;
-    public TextView quantity ,txtTotalAmonut  ;
+
+
+//    public TextView title, price, genre;
+//    LinearLayout itemQuantityLayout, itemTotalPriceLayout;
+//    public TextView quantity ,txtTotalAmonut  ;
+
+
+    public  TextView shopName,labelAddress,address,labelPhone,phone,
+
+    labelMobilePhone,mobilePhone;
+
+
+
+
 
     public MyViewHolder(View view) {
         super(view);
 
-        title = (TextView) view.findViewById(R.id.shopName);
-        genre = (TextView) view.findViewById(R.id.genre);
-        price = (TextView) view.findViewById(R.id.price);
-
-        itemQuantityLayout = (LinearLayout) view.findViewById(R.id.itemQuantityLayout);
-        itemTotalPriceLayout = (LinearLayout) view.findViewById(R.id.itemTotalPriceLayout);
-        quantity = (TextView) view.findViewById(R.id.quantity);
-        txtTotalAmonut = (TextView) view.findViewById(R.id.txtTotalAmonut);
+        shopName = (TextView) view.findViewById(R.id.shopName);
+        address = (TextView) view.findViewById(R.id.address);
+        phone = (TextView) view.findViewById(R.id.phone);
+        mobilePhone = (TextView) view.findViewById(R.id.mobilePhone);
     }
 }
 
@@ -51,11 +58,10 @@ public class MyViewHolder extends RecyclerView.ViewHolder {
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
         Menu item = itemList.get(position);
-        holder.title.setText(item.getItemName());
-        holder.genre.setText(item.getGenre());
-        holder.price.setText(""+item.getPrice());
-        holder.quantity.setText(""+item.getQuntity());
-        holder.txtTotalAmonut.setText(""+item.getTotalAmount());
+        holder.shopName.setText(item.getItemName());
+        holder.address.setText(item.getGenre());
+        holder.phone.setText(""+item.getPrice());
+        holder.mobilePhone.setText(""+item.getQuntity());
 
 }
     @Override
