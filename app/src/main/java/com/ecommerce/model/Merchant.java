@@ -9,6 +9,7 @@ public class Merchant extends Person{
     int merchantId;
     String nearLandmark;
 
+    
     public Contact getContact()
     {
         return contact;
