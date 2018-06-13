@@ -15,6 +15,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Toast;
 
+import com.ecommerce.database.DBHelper;
 import com.ecommerce.permission.PermissionResultCallback;
 import com.ecommerce.permission.PermissionUtils;
 
@@ -35,6 +36,7 @@ public class SplashScreenActivity extends AppCompatActivity implements ActivityC
 
     ArrayList<String> permissions=new ArrayList<>();
     PermissionUtils permissionUtils;
+    DBHelper dbHelper;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,6 +44,8 @@ public class SplashScreenActivity extends AppCompatActivity implements ActivityC
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_splash_screen);
         getSupportActionBar().hide();
+
+         dbHelper =new DBHelper(getApplicationContext());
        // permissionUtils=new PermissionUtils(getApplicationContext(),this);
         //permissionUtils.check_permission(getPermissions(),"Explain here why the app needs permissions",1);
         mSplashThread =  new Thread(){
@@ -59,8 +63,15 @@ public class SplashScreenActivity extends AppCompatActivity implements ActivityC
                 finish();
                 // Run next activity
                 Intent intent = new Intent();
-                intent.setClass(SplashScreenActivity.this, MainActivity.class);
+                if(dbHelper.numberOfRows()>0) {
+                    intent.setClass(SplashScreenActivity.this, MainActivity.class);
+                }else{
+                    intent.setClass(SplashScreenActivity.this, LoginActivity.class);
+
+                }
                 startActivity(intent);
+
+
                 //stop();
             }
         };

@@ -5,7 +5,7 @@ package com.ecommerce.database;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Hashtable;
+
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -19,8 +19,8 @@ import com.ecommerce.contant.DataBaseConstant;
 public class DBHelper extends SQLiteOpenHelper implements DataBaseConstant {
 
         private HashMap hp;
-
-        public DBHelper(Context context) {
+        public DBHelper(Context context)
+        {
             super(context, DATABASE_NAME , null, 1);
         }
 
@@ -28,9 +28,14 @@ public class DBHelper extends SQLiteOpenHelper implements DataBaseConstant {
         public void onCreate(SQLiteDatabase db) {
             // TODO Auto-generated method stub
             db.execSQL(
-                    "create table contacts " +
+                    "create table LOGIN_DETAILS_TABLE "  +
                             "(id integer primary key, name text,phone text,email text, street text,place text)"
             );
+
+
+            db.execSQL(CREATE_LOGIN_TABLE);
+
+
         }
 
         @Override
@@ -40,7 +45,7 @@ public class DBHelper extends SQLiteOpenHelper implements DataBaseConstant {
             onCreate(db);
         }
 
-    public boolean insertContact (String name, String phone, String email, String street,String place) {
+    public boolean insertLogin (String name, String phone, String email, String street,String place) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put("name", name);
@@ -60,7 +65,7 @@ public class DBHelper extends SQLiteOpenHelper implements DataBaseConstant {
 
     public int numberOfRows(){
         SQLiteDatabase db = this.getReadableDatabase();
-        int numRows = (int) DatabaseUtils.queryNumEntries(db, CONTACTS_TABLE_NAME);
+        int numRows = (int) DatabaseUtils.queryNumEntries(db, LOGIN_DETAILS_TABLE);
         return numRows;
     }
 
@@ -92,7 +97,7 @@ public class DBHelper extends SQLiteOpenHelper implements DataBaseConstant {
         res.moveToFirst();
 
         while(res.isAfterLast() == false){
-            array_list.add(res.getString(res.getColumnIndex(CONTACTS_COLUMN_NAME)));
+            array_list.add(res.getString(res.getColumnIndex(NAME)));
             res.moveToNext();
         }
         return array_list;
